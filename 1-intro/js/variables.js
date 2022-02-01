@@ -1,3 +1,5 @@
+//// 2. Variables - var, let & const
+
 // Variables - var, let, const
 // let and const -> advantagous for block level scoping. 
 
@@ -13,7 +15,6 @@ console.log(greet); // undefined
 // and then assign a value.
 greeting = 'Hello';
 console.log(greet); // -> Hello
-
 
 // _, $ -> private variable or jquery use
 
@@ -34,7 +35,7 @@ console.log(fName);
 fName = 'Summer';
 console.log(fName);
 
-//// 2. Variables - var, let & const
+
 
 //// CONST
 const lName = 'Snow';

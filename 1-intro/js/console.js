@@ -23,7 +23,7 @@ console.log({a:1, b:2, c:3, d:4});
 console.table({a:1, b:2});
 
 console.error('this is some error');
-console.warn('this is a warning')
+console.warn('this is a warning');
 // console.clear();
 
 //// Calculate from time to timeEnd

@@ -1,8 +1,14 @@
-// if(something){
-//     do something
-// } else {
-//     do something
-// }
+//////////////////////////////////////////// 
+//// 11. If Statement & Comparison Operator
+/*
+Syntax
+
+if(something){
+    do something
+} else {
+    do something
+}
+*/
 
 const id = '100';
 

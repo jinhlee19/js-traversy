@@ -50,9 +50,9 @@ val = str.split(" ");
 val = tags.split(",");
 
 //// replace()
-val = str.replace('Rafy', 'Jack');
+val = str.replace("Rafy", "Jack");
 
 /// includes()
-val =  str.includes('my');
+val = str.includes("my");
 
 console.log(val);

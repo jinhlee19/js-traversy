@@ -14,8 +14,8 @@ let val;
 // Get array length
 val = numbers.length;
 // Check if is array
-val = Array.isArray(numbers); // true 
-// useful when we dealing with a node list from the DOM 
+val = Array.isArray(numbers); // true
+// useful when we dealing with a node list from the DOM
 
 val = numbers[3]; // 23
 val = numbers[0]; // 43 -start from 0
@@ -52,24 +52,23 @@ val = numbers.sort();
 
 // Use the 'compare function' - 숫자를 오름차순 또는 내림차순으로 sort. (passing in a callback to the sort.)
 val = numbers.sort(function (x, y) {
-    return x - y;
+	return x - y;
 });
 
 val = numbers.sort(function (x, y) {
-    return y - x;
+	return y - x;
 });
 
 // Find - finding first number over or under 50. - must comment out unrelated codes on this example.
 function under50(num) {
-    return num < 50;
+	return num < 50;
 }
 
 function over50(num) {
-    return num > 50;
+	return num > 50;
 }
 
 val = numbers.find(under50);
- 
 
 console.log(numbers);
 console.log(val);

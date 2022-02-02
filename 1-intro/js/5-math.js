@@ -1,4 +1,3 @@
-//// 4. Type Conversion
 // Use Case - Form 등에서 String(default)으로 변수를 받아서 계산하려면 parse해서 Number type으로 바꿔서 사용한다.
 const num1 = 100;
 const num2 = 50;

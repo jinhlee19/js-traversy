@@ -34,17 +34,16 @@ function hisName(first, last) {
 }
 console.log(hisName('John', 'Doe')); // 이때는 argument = 전달인자
 
-//// Placing Default Value Before ES6
+// Placing Default Value Before ES6 - X Old 
 
-// function greeting(fName, lName) {
-//     if(typeof fName ==='undefined'){fName = 'John'}
-//     if(typeof lName === 'undefined'){lName = 'Doe'}
-// 	return 'Hello' + fName + ' ' + lName;
-// }
-// console.log(greet()); // giving default value as John Doe or give custom arg
-// //
+function greeting(fName, lName) {
+    if(typeof fName ==='undefined'){fName = 'John'}
+    if(typeof lName === 'undefined'){lName = 'Doe'}
+	return 'Hello' + fName + ' ' + lName;
+}
+console.log(greet()); // giving default value as John Doe or give custom arg
 
-// ES6
+// ES6 - O New
 function greeting(fName = 'John', lName = 'Snow') {
 	return 'Hello, ' + fName + ' ' + lName;
 }

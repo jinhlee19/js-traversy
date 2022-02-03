@@ -1,4 +1,2 @@
-# Modern Javascript
-
-- Reviewing the modern javasript basic
-- Started on Feb 1
+#### Javascript 기초 다지기 👊🏼 
+Modern JS Course by Brad Travers

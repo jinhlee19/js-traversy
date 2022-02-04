@@ -1,3 +1,6 @@
+///////////////////////////
+////// 11. Local and Session Storage
+
 // /*
 // Storages
 // - local and session storage

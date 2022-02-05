@@ -21,7 +21,7 @@ items[0].style.color = 'red';
 items[3].textContent = 'Hello';
 
 const listItems = document.querySelector('ul').getElementsByClassName('collection-item');
-// querySelector and getElementsBy를 함께 사용. - ul 안에 있는 것만 포함시킨다. (scope)
+// -> querySelector and getElementsBy를 함께 사용. - ul 안에 있는 것만 포함시킨다. (scope)
 
 console.log(listItems);
 

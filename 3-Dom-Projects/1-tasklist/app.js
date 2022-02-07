@@ -12,6 +12,13 @@ loadEventListeners();
 function loadEventListeners() {
 	// Add task event
 	form.addEventListener('submit', addTask);
+	// Remove task event
+	// task item마다 x를 처리하기 위해 event delegation 사용.
+	taskList.addEventListener('click', removeTask);
+	// Clear task Event
+	clearBtn.addEventListener('click',clearTasks);
+	// Filter tasks event
+	filter.addEventListener('keyup', filterTasks);
 }
 
 // Add Task
@@ -38,4 +45,42 @@ function addTask(e) {
 	// Clear input
 	taskInput.value = '';
 	e.preventDefault();
+}
+// Remove Task
+function removeTask(e) {
+	if (e.target.parentElement.classList.contains('delete-item')) {
+		// console.log(e.target);
+		if(confirm('Are You Sure?')){
+			e.target.parentElement.parentElement.remove();
+		}
+	}
+}
+
+// Clear Tasks
+function clearTasks(){
+	// Option 1
+	// taskList.innerHTML = '';
+	// Option 2 - Better, Faster
+	while(taskList.firstChild){
+		taskList.removeChild(taskList.firstChild);
+	}
+}
+
+// Filter
+function filterTasks(e){
+	const text = e.target.value.toLowerCase();
+	console.log(text);
+	document.querySelectorAll('.collection-item').forEach(function(task){
+	// *** getElementby -> HTML Collection,git querySelector -> nodelist
+	// HTML collection --> array로 변환해서 forEach문을 작성해야하지만 
+	// querySelectorAll --> nodelist를 생성하므로 forEach가 작동된다.
+		const item = task.firstChild.textContent;
+		if(item.toLowerCase().indexOf(text) != -1){
+			task.style.display = 'block';
+		} else {
+			task.style.display = 'none';
+		}
+	});
+	
+
 }

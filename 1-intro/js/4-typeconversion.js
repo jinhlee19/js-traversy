@@ -37,6 +37,7 @@ val = parseFloat("100.31"); // 100.31(parse with decimals)
 console.log(val);
 console.log(typeof val);
 console.log(val.length);
+
 console.log(val.toFixed(2));
 
 //// Type Coercion - What js do 'String' + 'int'

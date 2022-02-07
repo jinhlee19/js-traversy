@@ -20,7 +20,7 @@ console.log(greet); // -> Hello
 
 // letters, numbers, 
 // Cannot start with number 
-// var 1name ='John'; // error invalid token
+var 1name ='John'; // error invalid token
 
 // Multi word var Convention
 var firstName = 'John'; // Camel case - js

@@ -1,5 +1,5 @@
 ///////////////////////////
-////// 5. Creating Elements
+////// 5. Creating Elements ***
 
 ////// New List Item
 
@@ -15,16 +15,15 @@ li.id = 'new-item';
 // Add attribute
 li.setAttribute('title', 'New Item');
 
-// Create Text Node and Append
-// 생성된 li 태그 사이에 task list item 생성
+// Create Text Node and Append ***
+// 생성된 li 태그 사이에 task list item 생성 
 li.appendChild(document.createTextNode('Hello World')); 
 
 // Append li as child to ul
 document.querySelector('ul.collection').appendChild(li);
 
 ////// Delete Icon
-
-// Create new link element
+// Create new link element ***
 const link = document.createElement('a');
 link.className = 'delete-item secondary-content';
 

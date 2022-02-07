@@ -16,37 +16,36 @@ val = "His name is " + fName + " and he is " + age;
 
 //// Escaping
 val = "That's awesome, I can't wait";
-val = "That's awesome, I can't wait";
 
 //// length - property
-val = fName.length;
+val = fName.length; // 4
 
 //// concat() - method
-val = fName.concat(" ", lName);
+val = fName.concat(" ", lName); // 'John Snow'
 
 //// change case
-val = fName.toUpperCase();
+val = fName.toUpperCase(); // 'JOHN'
 val = fName.toLowerCase();
 
 //// index, indexOf()
 herName = "Arya Stark";
-val = herName[0];
-val = herName.indexOf("h");
-val = herName.lastIndexOf("a");
+val = herName[0]; // 'A'
+val = herName.indexOf("r"); // '1'
+val = herName.lastIndexOf("r"); //'8'
 // 0 으로 시작하므로 length -1 로 마지막 숫자를 찾는다. common formula you will see in JS
 val = fName.charAt(fName.length - 1); // n (from 'John')
 
 //// substring()
-val = fName.substring(1, 3);
+val = fName.substring(1, 3); // 'oh'
 
 //// slice()
-val = fName.slice(1, 3);
+val = fName.slice(1, 3); // 'oh'
 
 // start from back to last three
-val = fName.slice(-3);
+val = fName.slice(-3); // 'ohn'
 
 // split()
-val = str.split(" ");
+val = str.split(" "); 
 val = tags.split(",");
 
 //// replace()

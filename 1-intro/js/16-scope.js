@@ -10,7 +10,7 @@ function test() {
 	console.log('Function Scope: ', a, b, c);
 }
 
-test(); // 1 2 3 
+test(); // 4, 5, 6
 console.log('Global Scope: ', a, b, c); // 4 5 6
 
 if (true) {

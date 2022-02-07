@@ -19,35 +19,6 @@ function loadEventListeners() {
 	clearBtn.addEventListener('click', clearTasks);
 	// Filter tasks event
 	filter.addEventListener('keyup', filterTasks);
-	// DOM Load Event
-	document.addEventListener('DOMContentLoaded', getTasks);
-}
-
-// Get Tasks from LS
-function getTasks() {
-	let tasks;
-	if (localStorage.getItem('tasks') === null) {
-		tasks = [];
-	} else {
-		tasks = JSON.parse(localStorage.getItem('tasks'));
-	}
-	tasks.forEach(function (getIt) {
-		const li = document.createElement('li');
-		// Add class
-		li.className = 'collection-item';
-		// Create text node and append to li
-		li.appendChild(document.createTextNode(getIt));
-		// Create new link element
-		const link = document.createElement('a');
-		// Add class
-		link.className = 'delete-item secondary-content';
-		// Add icon html
-		link.innerHTML = '<i class="fa fa-remove"></i>';
-		// Append the link to li
-		li.appendChild(link);
-		// Append li to ul
-		taskList.appendChild(li);
-	});
 }
 
 // Add Task
@@ -71,35 +42,16 @@ function addTask(e) {
 	li.appendChild(link);
 	// Append li to ul
 	taskList.appendChild(li);
-
-	// Store in LS
-	storeTaskInLocalStorage(taskInput.value);
-
 	// Clear input
 	taskInput.value = '';
 	e.preventDefault();
 }
-
-// Store Task
-function storeTaskInLocalStorage(inputValue) {
-	let tasks;
-	if (localStorage.getItem('tasks') === null) {
-		tasks = [];
-	} else {
-		tasks = JSON.parse(localStorage.getItem('tasks'));
-	}
-	tasks.push(inputValue);
-	localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
 // Remove Task
 function removeTask(e) {
 	if (e.target.parentElement.classList.contains('delete-item')) {
 		// console.log(e.target);
 		if (confirm('Are You Sure?')) {
 			e.target.parentElement.parentElement.remove();
-			// Remove from LS
-			removeTaskFromLocalStorage(e.target.parentElement.parentElement);
 		}
 	}
 	/* 
@@ -109,21 +61,6 @@ function removeTask(e) {
 	if-1에서 정확히 지정을 하지 않으면 부모가 잘못 잡혀서 통으로 날아감.
 	*/
 }
-// Remove from LS
-function removeTaskFromLocalStorage(taskItem){
-	console.log(taskItem);
-	if (localStorage.getItem('tasks') === null) {
-		tasks = [];
-	} else {
-		tasks = JSON.parse(localStorage.getItem('tasks'));
-	}
-	tasks.forEach(function(task, index){
-		if(taskItem.textContent === task){
-			tasks.splice(index, 1);
-		}
-	});
-	localStorage.setItem('tasks',JSON.stringify(tasks));
-}
 
 // Clear Tasks
 function clearTasks() {
@@ -132,14 +69,7 @@ function clearTasks() {
 	// Option 2 - Better, Faster
 	while (taskList.firstChild) {
 		taskList.removeChild(taskList.firstChild);
-		// CLEAR FROM LS
-		clearTasksFromLocalScorage();
 	}
-}
-
-// 
-function clearTasksFromLocalScorage () {
-	localStorage.clear();
 }
 
 // Filter
@@ -164,14 +94,13 @@ The indexOf() method is case sensitive.
 function filterTasks(e) {
 	const text = e.target.value.toLowerCase();
 	console.log(text);
-	document.querySelectorAll('.collection-item').forEach(function (fResult) {
-		// 이해를 돕기위해 task 매개변수(parameter) 대신 임의의 fResult를 사용.
-		const item = fResult.firstChild.textContent;
+	document.querySelectorAll('.collection-item').forEach(function (task) {
+		const item = task.firstChild.textContent;
 		// first node of collection-item is textNode
 		if (item.toLowerCase().indexOf(text) != -1) {
-			fResult.style.display = 'block';
+			task.style.display = 'block';
 		} else {
-			fResult.style.display = 'none';
+			task.style.display = 'none';
 		}
 	});
 }

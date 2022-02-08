@@ -20,8 +20,7 @@ function calcResult(e) {
 	// Compute monthly payment
 	const x = Math.pow(1 + calcInterest, calcPayment);
 	const monthly = (principal * x * calcInterest) / (x - 1);
-	// isFinite - 매개변수가 유한한 수
-	// <> isNaN Method 참고
+
 	if (isFinite(monthly)) {
 		monthlyPayment.value = monthly.toFixed(2);
 		totalPayment.value = (monthly * calcPayment).toFixed(2);
@@ -30,21 +29,21 @@ function calcResult(e) {
 		showError('Please Check your numbers');
 	}
 	e.preventDefault();
-	// Show Error
-}
-function showError(error) {
-	const errorDiv = document.createElement('div');
-	// Get Element - card, heading
-	const card = document.querySelector('.card');
-	const heading = document.querySelector('.heading');
-	// Add class
-	errorDiv.className = 'alert alert-danger';
-	// Create Text Node and Append to div
-	errorDiv.appendChild(document.createTextNode(error));
-	// Insert error above heading
-	card.insertBefore(errorDiv, heading);
-	// Clear error after 3 sec
-	setTimeout(clearError, 1000);
+	function showError(error) {
+		const errorDiv = document.createElement('div');
+		// Get Element - card, heading
+		const card = document.querySelector('.card');
+		const heading = document.querySelector('.heading');
+
+		// Add class
+		errorDiv.className = 'alert alert-danger';
+		// Create Text Node and Append to div
+		errorDiv.appendChild(document.createTextNode(error));
+
+		card.insertBefore(errorDiv, heading);
+		// Clear error after 3 sec
+		setTimeout(clearError, 1000);
+	}
 }
 // clear error
 function clearError() {

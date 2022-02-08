@@ -1,6 +1,16 @@
 // Listen for submit
 const loanForm = document.getElementById('loan-form');
-loanForm.addEventListener('submit', calcResult);
+// loanForm.addEventListener('submit', calcResult);
+loanForm.addEventListener('submit', function(e){
+	// Hide Results 
+	document.getElementById('results').style.display = 'none';
+
+	// Show Loader
+	document.getElementById('loading').style.display = 'block';
+	setTimeout(calcResult, 2000);
+	e.preventDefault();
+
+});
 
 function calcResult(e) {
 	console.log('Calculating... ');
@@ -28,7 +38,7 @@ function calcResult(e) {
 	} else {
 		showError('Please Check your numbers');
 	}
-	e.preventDefault();
+	// e.preventDefault();
 	function showError(error) {
 		const errorDiv = document.createElement('div');
 		// Get Element - card, heading
@@ -49,3 +59,4 @@ function calcResult(e) {
 function clearError() {
 	document.querySelector('.alert').remove();
 }
+

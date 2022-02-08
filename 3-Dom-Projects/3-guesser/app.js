@@ -10,7 +10,7 @@ GAME FUNCTION:
 // Game values
 let min = 1,
 	max = 10,
-	winningNum = 2,
+	winningNum = getRandomNum(min,max),
 	guessesLeft = 3;
 
 // UI Element
@@ -24,6 +24,14 @@ message = document.querySelector('.message');
 // Assign UI min and max
 minNum.textContent = min;
 maxNum.textContent = max;
+
+// Play again event Listener
+game.addEventListener('mousedown', function(e){
+	if(e.target.className === 'play-again'){
+		window.location.reload();
+	}
+	
+});
 
 // Listen for guess
 guessBtn.addEventListener('click', function () {
@@ -79,10 +87,23 @@ function gameOver(won, msg) {
     guessInput.style.color = color;
 	// Set message
 	setMessage(msg);
+
+	// Play Again
+	guessBtn.value = 'Play Again';
+	guessBtn.className += 'play-again';
 }
 
 // Set Message
 function setMessage(msg, color) {
 	message.style.color = color;
 	message.textContent = msg;
+}
+
+// get Winning Num
+function getRandomNum (min, max){
+	// console.log(Math.random()*(max-min+1));
+	// (max-min) = (10-1+1) --> returns 0~9
+	// console.log(Math.floor(Math.random()*(10+1)+min));
+	// console.log(Math.floor(Math.random()*(max-min+1)+min));
+	return Math.floor(Math.random()*(max-min+1)+min);
 }

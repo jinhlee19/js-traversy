@@ -11,6 +11,8 @@ function Person(name,dob){
         // we can use this to access any properties and methods within person.
         const ageDate = new Date(diff);
         return ageDate.getUTCFullYear() - 1970;
+        // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date
+        // Date Method 는 1970.1.1. 기준으로 계산되므로 참고하자.
     }
 }
 

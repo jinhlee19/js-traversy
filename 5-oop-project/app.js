@@ -22,6 +22,7 @@ UI.prototype.addBookToList = function (book) {
     `;
 	list.appendChild(row);
 };
+
 // SHOW ALERT
 UI.prototype.showAlert = function (message, className) {
 	// Create a Div
@@ -40,6 +41,13 @@ UI.prototype.showAlert = function (message, className) {
 		document.querySelector('.alert').remove();
 	}, 3000);
 };
+
+// DELETE BOOK
+UI.prototype.deleteBook = function(target){
+	if(target.className === 'delete'){
+		target.parentElement.parentElement.remove();
+	}
+}
 // CLEAR FIELDS
 UI.prototype.clearFields = function () {
 	document.getElementById('title').value = '';
@@ -47,7 +55,7 @@ UI.prototype.clearFields = function () {
 	document.getElementById('isbn').value = '';
 };
 
-// EVENT LISTENERS
+// EVENT LISTENERS for Add Book
 document.getElementById('book-form').addEventListener('submit', function (e) {
 	// Get Form Values
 	const title = document.getElementById('title').value,
@@ -59,7 +67,7 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 
 	// Instantiate UI
 	const ui = new UI();
-
+	console.log(ui); // 생성된 프로토타입의 메서드 구경하기!
 	// Validate
 	if (title === '' || author === '' || isbn === '') {
 		// Error alert
@@ -74,3 +82,19 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 	}
 	e.preventDefault();
 });
+
+// Event Listener for Delete
+document.getElementById('book-list').addEventListener('click', function(e){
+	// Instantiate UI AGAIN
+	const ui = new UI();
+	ui.deleteBook(e.target);
+	// Show message 
+	ui.showAlert('Book Removed', 'success');
+
+	e.preventDefault();
+});
+
+/* 
+If we have something that's going to show up more than once with the same class or something that is not there when the page loads, but it's dynamically added, we're going to have to use event delegation.
+
+*/

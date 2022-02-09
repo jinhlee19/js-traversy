@@ -1,3 +1,4 @@
+//////////////////////////////////////////////////////
 ////// ES 5 Version - using prototype and its methods 
 
 // Book Constructor
@@ -9,6 +10,9 @@ function Book(title, author, isbn) {
 
 // UI Constructor
 function UI() {}
+
+//////////////////////////////////////////////////////
+////// PROTOTYPE METHODS
 
 // Add Book to List - UI function의 prototype에 메서드를 생성.
 UI.prototype.addBookToList = function (book) {
@@ -56,6 +60,8 @@ UI.prototype.clearFields = function () {
 	document.getElementById('author').value = '';
 	document.getElementById('isbn').value = '';
 };
+
+////// EVENT LISTENERS  
 
 // EVENT LISTENERS for Add Book
 document.getElementById('book-form').addEventListener('submit', function (e) {

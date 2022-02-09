@@ -1,3 +1,5 @@
+////// Prototype - Intro
+
 /*
 - Javascript는 다른 언어들과 다르게 class based가 아니다. 
 - 모든 자바스크립트 객체는 프로토타입을 갖는다.

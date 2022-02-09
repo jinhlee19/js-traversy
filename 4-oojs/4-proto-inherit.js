@@ -1,3 +1,5 @@
+////// Prototype - Inheritance
+
 // Person constructor
 function Person(firstName, lastName) {
   this.firstName = firstName;

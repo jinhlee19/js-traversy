@@ -1,8 +1,12 @@
+// Book Constructor
 class Book {
 	constructor(title, author, isbn) {
-		this.title = title, this.author = author, this.isbn = isbn;
+	  this.title = title;
+	  this.author = author;
+	  this.isbn = isbn;
 	}
-}
+  }
+  
 
 class UI {
 	// Process: methods list -> parameter ->
@@ -46,6 +50,54 @@ class UI {
 	}
 }
 
+// Local Storage Class
+class Store {
+	static getBooks() {
+		let books;
+		if (localStorage.getItem('books') === null) {
+			books = [];
+		} else {
+			books = JSON.parse(localStorage.getItem('books'));
+		}
+		return books;
+	}
+	static displayBooks() {
+		const books = Store.getBooks();
+		/// ***
+		books.forEach(function(book){
+			const ui = new UI;
+			// Add book to UI
+			ui.addBookToList(book);
+		});
+	}
+	static addBook(book) {
+		const books = Store.getBooks();
+		books.push(book);
+		localStorage.setItem('books', JSON.stringify(books));
+	}
+	static removeBook(isbn) {
+		const books = Store.getBooks();
+		////////////////// *** FOREACH DELETE *** //////////////////
+		books.forEach(function(book, index){
+		 if(book.isbn === isbn) {
+		  books.splice(index, 1);
+		 }
+		});
+	
+		localStorage.setItem('books', JSON.stringify(books));
+	  }
+	/*
+	Static Method 복습
+	- instantiate하지 않아도 사용할수 있는 메서드
+	- 클래스를 통해 object를 만들때 객체의 프로퍼티 같은걸 입력할 필요없는
+		stand-alone method 같은거.
+	*/
+}
+
+// DOM LOAD EVENT
+document.addEventListener('DOMContentLoaded', Store.displayBooks());
+
+
 ////// EVENT LISTENERS  --- same as ES5
 // EVENT LISTENERS for Add Book
 document.getElementById('book-form').addEventListener('submit', function (e) {
@@ -67,21 +119,27 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 	} else {
 		// Add book to list
 		ui.addBookToList(book);
-		// Show success 
-		ui.showAlert('Book Added!', 'success')
+		// Show success
+		ui.showAlert('Book Added!', 'success');
 		// Clear fields
 		ui.clearFields();
+
+		// Add to LS
+		Store.addBook(book);
 	}
 	e.preventDefault();
 });
 
 // Event Listener for Delete
-document.getElementById('book-list').addEventListener('click', function(e){
+document.getElementById('book-list').addEventListener('click', function (e) {
 	// Instantiate UI AGAIN
 	const ui = new UI();
 	ui.deleteBook(e.target);
-	// Show message 
+	// Show message
 	ui.showAlert('Book Removed', 'success');
+	// Delete book 
+	Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
 	e.preventDefault();
 });
+

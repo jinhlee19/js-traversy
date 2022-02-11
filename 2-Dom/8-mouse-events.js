@@ -1,5 +1,5 @@
 ///////////////////////////
-////// 4. Multiple Elements 
+////// 7. Mouse Events
 
 const clearBtn = document.querySelector('.clear-tasks');
 const card = document.querySelector('.card');

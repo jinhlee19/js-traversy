@@ -1,8 +1,7 @@
 //////////////////////////
 ////// 2. Single Elements 
 
-////////////////////////////////////////
-////////////// document.getElementById()
+//// document.getElementById()
 console.log(document.getElementById('task-title'));
 
 //// Get things from the element
@@ -25,8 +24,7 @@ taskTitle.innerText = 'My Tasks';
 taskTitle.innerHTML = '<span style="color:red">Task List</span>';
 
 
-////////////////////////////////////////
-////////////// document.querySelector()
+//// document.querySelector()
 
 console.log(document.querySelector('#task-title')); // h5#task-title
 console.log(document.querySelector('.card-title')); // span.card-title

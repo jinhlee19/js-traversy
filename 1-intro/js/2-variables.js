@@ -40,7 +40,7 @@ console.log(fName);
 //// CONST
 const lName = 'Snow';
 console.log(lName);
-name = ('Sara'); // Err - Uncaught TypeError: Assignment to constant variable.
+name = ('Sara'); // Err - Uncaught TypeError: Assignment to constant variable. 
 // Have to assign a value
 const greeting; // Err - Uncaught SyntaxError: Missing initializer in const declaration.
 

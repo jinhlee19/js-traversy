@@ -1,6 +1,5 @@
 ///////////////////////////
-////// 1. Document Objects
-
+////// 1. DOCUMENT OBJECTS
 
 let val;
 
@@ -25,8 +24,6 @@ val = document.forms[0].id; // tast-form
 val = document.forms[0].method; // get
 val = document.forms[0].action; // action="" of form
 
-//////////////////////////////////////////
-
 val = document.links; // HTMLCollection(6)[...]
 // 문서의 링크 전체 컬렉션
 
@@ -42,8 +39,6 @@ val = document.images; // HTMLCollections[...]
 val = document.scripts; // HTMLCollections[...] 전체 script 표시
 val = document.scripts[2].getAttribute('src'); // app.js 
 // 2번째 스크립트의 src
-
-//////////////////////////////////////////
 
 const scripts = document.scripts; 
 

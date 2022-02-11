@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+		<style>
+			.success,
+			.error {
+				color: white;
+				padding: 5px;
+				margin: 5px 0 15px 0;
+			}
+			.success {
+				background-color: green;
+			}
+			.error {
+				background-color: red;
+			}
+		</style>
+		<title>Form 2: Calc</title>
+	</head>
+	<body>
+        <div class="container">
+            <h5 style="font-weight: 600;">3월 견적서</h5>
+            <form action="" id="calc-form">
+                <div>
+                    <label for="title">공급처</label>
+                    <input type="text" id="company" class="u-full-width" autocomplete="on">
+                </div>
+                <div>
+                    <label for="title">클래스</label>
+                    <input type="text" id="class-name" class="u-full-width">
+                </div>
+                <div>
+                    <label for="title">교재명</label>
+                    <input type="text" id="book-name" class="u-full-width">
+                </div>
+                <div>
+                    <label for="title">단가</label>
+                    <input type="number" id="each-price" class="u-full-width">
+                </div>
+                <div>
+                    <label for="title">주문수량</label>
+                    <input type="number" id="order-number" class="u-full-width">
+                </div>
+                <input type="submit" value="submit" class="u-full-width">
+            </form>
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>공급처</th>
+                        <th>클래스</th>
+                        <th>교재명</th>
+                        <th>단가</th>
+                        <th>주문수량</th>
+                        <th>소계</th>
+                    </tr>
+                </thead>
+                <tbody id="order-list"></tbody>
+            </table>
+        </div>
+		<!-- <div class="container">
+			<h5 style="font-weight: 600;">Form 1: 클래스 추가</h5>
+			<form action="" id="class-form">
+				<div>
+					<label for="title">클래스 이름</label>
+					<input type="text" id="class-name" class="u-full-width" />
+				</div>
+                <div>
+                    <label for="title">공급처</label>
+                    <input type="text" id="company" class="u-full-width" />
+                </div>
+                <div>
+					<label for="title">대상연령</label>
+					<input type="number" id="age-group" class="u-full-width" />
+				</div>
+                <div>
+					<label for="title">사용교재</label>
+					<input type="text" id="book1" class="u-full-width" />
+				</div>
+                <div>
+					<label for="title">단가</label>
+					<input type="number" id="price" class="u-full-width" />
+				</div>
+                <input type="submit" value="Submit" class="u-full-width">
+			</form>
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>클래스명</th>
+                        <th>공급처</th>
+                        <th>대상연령</th>
+                        <th>사용교재</th>
+                        <th>교재단가</th>
+                    </tr>
+                </thead>
+                <tbody id="class-list"></tbody>
+            </table> -->
+		</div>
+
+		<!-- <div class="container">
+			<h1>Add Book</h1>
+			<form action="" id="book-form">
+				<div class="">
+					<label for="title">Title</label>
+					<input type="text" id="title" class="u-full-width" />
+				</div>
+				<div class="">
+					<label for="author">Author</label>
+					<input type="text" id="author" class="u-full-width" />
+				</div>
+				<div class="">
+					<label for="isbn">ISBN#</label>
+					<input type="text" id="isbn" class="u-full-width" />
+				</div>
+                <input type="submit" value="Submit" class="u-full-width">
+			</form>
+			<table class="u-full-width">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Author</th>
+						<th>ISBN</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="book-list"></tbody>
+			</table>
+		</div> -->
+
+        <!-- <div>
+            <label for="title">대상연령</label>
+            <select id="age-group" name="age-group" class="u-full-width">
+                <option value="3">만3세</option>
+                <option value="4">만4세</option>
+                <option value="5">만5세</option>                        
+              </select>
+        </div>
+        <div>
+            <label for="title">공급사</label>
+            <select name="company-group" id="company-group" class="u-full-width">
+                <option value="hanbit">한빛교육</option>
+                <option value="daum">다음교육</option>
+                <option value="nara">나라교육</option>
+                <option value="kidco">키즈코</option>
+            </select>
+        </div> -->
+		<script src="calc.js"></script>
+	</body>
+</html>

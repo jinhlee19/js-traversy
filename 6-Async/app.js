@@ -3,9 +3,10 @@ document.getElementById('button').addEventListener('click', loadData);
 function loadData(){
     // Create an XHR Object
     const xhr = new XMLHttpRequest();
-    
+    // call by '.open('type Of Request', )' 
     xhr.open('GET', 'data.txt', true);
     xhr.onload = function(){
+        console.log(this);
         if(this.status === 200) {
             console.log(this.responseText);
         }

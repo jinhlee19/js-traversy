@@ -11,13 +11,10 @@ function loadData(){
 
 
     // 1: server connection established
-    
     // Optional - Used for Spinner / Loaders
-    
     xhr.onprogress= function(){
         console.log('READYSTATE', xhr.readyState);  
     }
-
     // Onload
     xhr.onload = function(){
         console.log('READYSTATE', xhr.readyState);  
@@ -30,7 +27,6 @@ function loadData(){
     xhr.onerror = function(){
         console.log('Request error...')
     }
-
     
     // 사용하지 않으나 statechange를 확인할 수 있다.
     // xhr.onreadystatechange = function(){

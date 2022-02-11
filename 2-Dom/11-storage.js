@@ -1,38 +1,38 @@
-///////////////////////////
-////// 11. Local and Session Storage
+/////////////////////////
+//// 11. Local and Session Storage
 
-// /*
-// Storages
-// - local and session storage
-// - json.stringify json.parse
-// string으로 사용
-// */
+/*
+Storages
+- local and session storage
+- json.stringify json.parse
+string으로 사용
+*/
 
-// // Set Local Storage Item
-// localStorage.setItem('name', 'John');
-// localStorage.setItem('age', '30');
+// Set Local Storage Item
+localStorage.setItem('name', 'John');
+localStorage.setItem('age', '30');
 
-// // Set Session Storage Item
-// sessionStorage.setItem('name', 'Beth')
+// Set Session Storage Item
+sessionStorage.setItem('name', 'Beth')
 
-// Remove from Storage
-// localStorage.removeItem('name');
+Remove from Storage
+localStorage.removeItem('name');
 
-// // Get from Storage
-// const name = localStorage.getItem('name');
-// const age = localStorage.getItem('age');
+// Get from Storage
+const name = localStorage.getItem('name');
+const age = localStorage.getItem('age');
 
-// // // clear local
-// localStorage.clear();
+// // clear local
+localStorage.clear();
 
-// console.log(name, age);
+console.log(name, age);
 
-// document.querySelector('form').addEventListener('submit', function(e){
-//     console.log(task.value);
-//     const task=document.getElementById('task').value;
-//     localStorage.setItem('task',task);
-//     e.preventDefault();
-// });
+document.querySelector('form').addEventListener('submit', function(e){
+    console.log(task.value);
+    const task=document.getElementById('task').value;
+    localStorage.setItem('task',task);
+    e.preventDefault();
+});
 
 /* 여기까지는 그냥 생성. 이후 Replace가 반복되지 않게 
  craete an array of tasks and store as a string. */

@@ -32,7 +32,7 @@ function loadCustormers(e) {
 	// true for async
 	xhr.onload = function () {
 		if (this.status === 200) {
-			// console.log(this.responseText);
+			console.log(this.responseText);
 			// parse as an object
 			const customers = JSON.parse(this.responseText);
 			// Need To Loop Through it!

@@ -9,10 +9,10 @@ function loadData(){
     xhr.open('GET', 'data.txt', true);
     
     // 1: server connection established
-    // Optional - Used for Spinner / Loaders
-    xhr.onprogress= function(){
-        console.log('READYSTATE', xhr.readyState);  
-    }
+    // ////// Optional - 스피너(Spinner)나 로더(Loader) 등을 사용할 때 필요함**
+    // xhr.onprogress= function(){
+    //     console.log('READYSTATE', xhr.readyState);  
+    // }
     // Onload
     xhr.onload = function(){
         console.log('READYSTATE', xhr.readyState);  

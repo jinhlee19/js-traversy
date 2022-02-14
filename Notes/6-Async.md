@@ -1,6 +1,118 @@
 # 1. AJAX & XHR
 
+## 1.1. AJAX Intro
+
+- Asynchronous Javascript & XML 의 축약어임에도 불구하고 xml이 json으로 대부분 대체됨.
+- set of web tech, send & receive data asynchronously
+- does not interfere with the current page
+- 일반적으로 http req을 보내서 전체를 받아오지만 ajax는 비동기식으로 작은 섹션만 변경하거나 인터렉티브하게 해준다. ajax Engine -> xmlHttpRequest
+- cross domain communitcation - 다른 도메인에서 api를 사용하게 해주기.
+
+## 1.2. XmlHttpRequest(XHR) Object
+
+- API in the form of an object
+- Provided by the Browsers JS environment
+- Methods transfer data between client / server
+- can be used with other protocols than http
+- can work with data other than XML
+
+## 1.3. Libraries and Other Methods
+
+아마도 이후에 다뤄봐야할 HTTP 라이브러리들...
+
+- Ajax XHR
+- Fetch API - part of vanila js
+- Node HTTP
+- Axios
+- (JQuery)
+
 # 2. XHR Object Methods & Working with Text
+
+## 기본 형식 예제
+
+```javascript
+function loadData() {
+	// (1)xhr instantiate (2)hxr.open
+	// (3)hxr.onload(statement) (4)hxr.send
+	const xhr = new XMLHttpRequest();
+	xhr.open('GET', 'data.txt', true);
+
+	xhr.onload = function () {
+		if (this.status === 200) {
+			document.getElementById('output').innerHTML = `<h6>${this.responseText}</h6>`;
+		}
+	};
+	xhr.onerror = function () {
+		console.log('Request error...');
+	};
+	xhr.send();
+}
+```
+
+## 기본 형식 with Comments
+
+```javascript
+document.getElementById('button').addEventListener('click', loadData);
+
+function loadData() {
+	// Create an XHR Object
+	const xhr = new XMLHttpRequest();
+	// OPEN - specify type of request and url
+	// call by '.open('type Of Request', )'
+	// get request -> read the file or URL and then data
+	xhr.open('GET', 'data.txt', true);
+
+	// 1: server connection established
+	// Optional - 스피너(Spinner)나 로더(Loader) 등을 사용할 때 필요*
+	// xhr.onprogress= function(){
+	//     console.log('READYSTATE', xhr.readyState);
+	// }
+	// Onload
+	xhr.onload = function () {
+		console.log('READYSTATE', xhr.readyState);
+		console.log(this);
+		if (this.status === 200) {
+			// console.log(this.responseText);
+			document.getElementById('output').innerHTML = `<h6>${this.responseText}</h6>`;
+		}
+	};
+	xhr.onerror = function () {
+		console.log('Request error...');
+	};
+
+	// 사용하지 않으나 statechange를 확인할 수 있다.
+	// xhr.onreadystatechange = function(){
+	//     console.log('READYSTATE', xhr.readyState);
+	//     if(this.status === 200 && this.readyState === 4){
+	//         console.log(this.responseText);
+	//     }
+	// }
+	// Fin.
+	xhr.send();
+	/* 아무튼 ajax랑 XHR이 더 복잡함. fetch가 newer std.*/
+}
+```
+
+```md
+# readyState Values
+
+0: request not initialized
+1: server connection established
+2: request received
+3: processing request -> spinner or loader
+4: request finished and response is ready
+
+# HTTP STATUS
+
+200: "OK"
+403: "Forbidden"
+404: "Not Found"
+```
+
+# 3. Ajax and JSON
+
+- JSON은 따옴표(") 사용해서 key, value(숫자제외)를 string으로 저장
+- Tip: 필요하면 구글링으로 validate json 테스트 사이트 사용하기
 
 ```javascript
 document.getElementById('button1').addEventListener('click', loadCustormer);
@@ -61,85 +173,7 @@ function loadCustormers(e) {
 }
 ```
 
-## 기본 형식 예제
-
-```javascript
-function loadData() {
-	// (1)xhr 변수 (2)open (3)onload(statement) (4)send
-	const xhr = new XMLHttpRequest();
-	xhr.open('GET', 'data.txt', true);
-	xhr.onload = function () {
-		// console.log('READYSTATE', xhr.readyState);
-		if (this.status === 200) {
-			document.getElementById('output').innerHTML = `<h6>${this.responseText}</h6>`;
-		}
-	};
-	xhr.onerror = function () {
-		console.log('Request error...');
-	};
-	xhr.send();
-}
-```
-
-```md
-# readyState Values
-
-0: request not initialized
-1: server connection established
-2: request received
-3: processing request -> spinner or loader
-4: request finished and response is ready
-
-# HTTP STATUS
-
-200: "OK"
-403: "Forbidden"
-404: "Not Found"
-```
-
-```javascript
-document.getElementById('button').addEventListener('click', loadData);
-
-function loadData() {
-	// Create an XHR Object
-	const xhr = new XMLHttpRequest();
-	// OPEN - specify type of request and url
-	// call by '.open('type Of Request', )'
-	// get request -> read the file or URL and then data
-	xhr.open('GET', 'data.txt', true);
-
-	// 1: server connection established
-	// Optional - Used for Spinner / Loaders
-	xhr.onprogress = function () {
-		console.log('READYSTATE', xhr.readyState);
-	};
-	// Onload
-	xhr.onload = function () {
-		console.log('READYSTATE', xhr.readyState);
-		console.log(this);
-		if (this.status === 200) {
-			// console.log(this.responseText);
-			document.getElementById('output').innerHTML = `<h6>${this.responseText}</h6>`;
-		}
-	};
-	xhr.onerror = function () {
-		console.log('Request error...');
-	};
-
-	// 사용하지 않으나 statechange를 확인할 수 있다.
-	// xhr.onreadystatechange = function(){
-	//     console.log('READYSTATE', xhr.readyState);
-	//     if(this.status === 200 && this.readyState === 4){
-	//         console.log(this.responseText);
-	//     }
-	// }
-	// Fin.
-	xhr.send();
-	/* 아무튼 ajax랑 XHR이 더 복잡함. fetch가 newer std.*/
-}
-```
-
-# 3. JavaScript Object Notation (JSON)
+# 4. JavaScript Object Notation (JSON)
 
 ### Intro
 
@@ -212,7 +246,7 @@ function getJokes(e) {
 }
 ```
 
-# 4. API, REST APIs & HTTP Requests 정리
+# 5-1. API, REST APIs & HTTP Requests 정리
 
 ### API
 
@@ -249,7 +283,7 @@ And Rest...
 
 ...
 
-# 5. Callback Functions
+# 5-2. Callback Functions
 
 ### 과제 전 설명
 

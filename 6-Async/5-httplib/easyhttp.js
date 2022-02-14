@@ -47,7 +47,6 @@ easyHTTP.prototype.put = function (url, data, callback) {
 };
 
 // Make an HTTP DELETE request
-
 easyHTTP.prototype.delete = function (url, callback) {
 	this.http.open('delete', url, true);
 	let self = this;

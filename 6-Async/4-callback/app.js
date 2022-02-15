@@ -29,7 +29,7 @@ function createPost(post, callback) {
 		callback();
         // 여기서 아래의 getPosts 콜백함수가 실행된다.
 	}, 2000);
-}
+} 
 
 function getPosts() {
 	setTimeout(function () {

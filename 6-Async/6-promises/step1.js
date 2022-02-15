@@ -4,16 +4,11 @@ const posts = [
 	{ title: 'Post Two', body: 'This is post two' },
 ];
 
-function createPost(post) {
+function createPost(post, callback) {
 	return new Promise(function (resolve, reject) {
 		setTimeout(function () {
 			posts.push(post);
-			const error = false;
-			if (!error) {
-				resolve();
-			} else {
-				reject('Error: Something went wrong.');
-			}
+			resolve();
 		}, 2000);
 	});
 }
@@ -28,8 +23,4 @@ function getPosts() {
 	}, 1000);
 }
 
-createPost({ title: 'Post Three', body: 'This is post three' })
-	.then(getPosts)
-	.catch(function (err) {
-		console.log(err);
-	});
+createPost({ title: 'Post Three', body: 'This is post three' }, then(getPost));

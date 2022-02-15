@@ -8,7 +8,7 @@ function createPost(post) {
 	return new Promise(function (resolve, reject) {
 		setTimeout(function () {
 			posts.push(post);
-			const error = false;
+			const error = true;
 			if (!error) {
 				resolve();
 			} else {
@@ -33,3 +33,5 @@ createPost({ title: 'Post Three', body: 'This is post three' })
 	.catch(function (err) {
 		console.log(err);
 	});
+
+// 질문 : err error, resolve, reject 메서드는 예약어? prototype 인가? catch는 error처리 전용인가? ∏∏

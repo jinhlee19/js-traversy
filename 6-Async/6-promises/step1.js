@@ -4,10 +4,12 @@ const posts = [
 	{ title: 'Post Two', body: 'This is post two' },
 ];
 
-function createPost(post, callback) {
+function createPost(post) {
+	// #1 new Promise
 	return new Promise(function (resolve, reject) {
 		setTimeout(function () {
 			posts.push(post);
+			// #2 callback 대신 resolve();
 			resolve();
 		}, 2000);
 	});
@@ -22,5 +24,5 @@ function getPosts() {
 		document.body.innerHTML = output;
 	}, 1000);
 }
-
-createPost({ title: 'Post Three', body: 'This is post three' }, then(getPost));
+// #3 callback 자리에 getPost -> then(getPost)
+createPost({ title: 'Post Three', body: 'This is post three' }).then(getPosts);

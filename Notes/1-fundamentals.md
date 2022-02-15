@@ -1,8 +1,11 @@
-#### Javascript 기초 다지기 👊🏼 
-Modern JS Course by Brad Traversy 
+#### Javascript 기초 다지기 👊🏼
+
+Modern JS Course by Brad Traversy
 
 ## 1.0. Adding .js File
+
 ---
+
 ```html
 <!DOCTYPE html>
 <head>
@@ -17,9 +20,10 @@ Modern JS Course by Brad Traversy
 ```
 
 ## 1.1. Comments
+
 ---
 
-``` javascript
+```javascript
 //// 1. Using The Console
 
 // 1.1. Comments
@@ -32,8 +36,10 @@ Multi-line comments
 ```
 
 ## 1.2. Log to console
+
 ---
-``` javascript
+
+```javascript
 alert('hello world');
 
 console.log('hello world');
@@ -41,11 +47,10 @@ console.log(123);
 console.log(true);
 var greet = 'hello';
 console.log(greet);
-console.log([1,2,3,4]);
+console.log([1, 2, 3, 4]);
 //// Objects - object Literal
-console.log({a:1, b:2, c:3, d:4});
-console.table({a:1, b:2});
-
+console.log({ a: 1, b: 2, c: 3, d: 4 });
+console.table({ a: 1, b: 2 });
 
 console.error('this is some error');
 console.warn('this is a warning');
@@ -53,22 +58,25 @@ console.warn('this is a warning');
 
 //// Calculate from time to timeEnd
 console.time('Hello');
-    console.log('hello world');
-    console.log('hello world');
-    console.log('hello world');
-    console.log('hello world');
-    console.log('hello world');
+console.log('hello world');
+console.log('hello world');
+console.log('hello world');
+console.log('hello world');
+console.log('hello world');
 console.timeEnd('Hello'); // 실행 시간 계산 ms
 ```
 
 ## 1.3. Variables - var, let, const
+
 ---
-- var 사용을 자제한다. 
+
+- var 사용을 자제한다.
 - let과 const는 블럭레벨의 스코핑에서 유용하다.
 - var와 let은 값 재할당(reassign) 가능, 값 없이 변수 생성 가능. (const 불가)
 - 숫자로 시작할 수 없음
 - let 변수 재선언은 불가.
-- ***const가 변수를 재선언 하는 경우나 막혀있지, array 또는 object 안의 구성을 바꾸는 건 가능하다. 특별한 경우가 아니고서는 const를 우선으로 사용한다.***
+- **_const가 변수를 재선언 하는 경우나 막혀있지, array 또는 object 안의 구성을 바꾸는 건 가능하다. 특별한 경우가 아니고서는 const를 우선으로 사용한다._**
+
 ```javascript
 // let, var 은 variable을 재할당(re-assign) 할 수 있다.
 var name = 'John Doe';
@@ -92,14 +100,14 @@ var 1name ='John'; // error invalid token
 // Multi word var Convention
 var firstName = 'John'; // Camel case - js
 var first_name = 'Sara'; // Underscore - php
-var FirstName = 'Tom'; 
-// Pascal case - OOP(Object Oriented Programming) or a constructor function 
+var FirstName = 'Tom';
+// Pascal case - OOP(Object Oriented Programming) or a constructor function
 var firstname;
 
 
-//// LET 
+//// LET
 let fName;
-let fName = 'Snow'; 
+let fName = 'Snow';
 // Uncaught SyntaxError: Identifier 'fname' has already been declared - 재선언 불가
 console.log(fName);
 fName = 'Summer';
@@ -109,13 +117,13 @@ console.log(fName);
 //// CONST
 const lName = 'Snow';
 console.log(lName);
-name = ('Sara'); 
+name = ('Sara');
 // Err - Uncaught TypeError: Assignment to constant variable.
 // Have to assign a value
 const greeting; // Err - Uncaught SyntaxError: Missing initializer in const declaration.
 
-/* const with arrays and objects and 
-other types of data aren't primitive like strings and numbers. 
+/* const with arrays and objects and
+other types of data aren't primitive like strings and numbers.
 things can be changed but not assigned.*/
 
 //// Objects Example
@@ -127,39 +135,43 @@ const person = {
 person.name = 'Sara';
 person.age = 32;
 
-console.log(person); 
+console.log(person);
 
-//// Array Example 
+//// Array Example
 // we can use push method to add on to an array but cannot change name of the const, 'numbers'.
 const numbers = [1,2,3,4,5];
 numbers.push(6);
 // example below -> err - cannot reassign numbers
-numbers = [1,2,3,4,5,6]; 
+numbers = [1,2,3,4,5,6];
 console.log(numbers);
 
-// ** const only - unless for value changing, 
+// ** const only - unless for value changing,
 // re-initializing it or using it in an iterator or a loop. **
 ```
 
 ## 1.4. Data Types
---- 
-### About JS
-- Dyanmicall Typed Language 
-    Types are associated with values not variables.
-    same variable can hold multiple types.
-    we do not need to specify type.
-    Most others are statically typed.
-   There are supersets of JS and addons to allow static typing (TypeScript, Flow)
-### Data Types 
-- Primitive Data Types:
-    Stored directly in the location the variable accesses Stored on the stack.
-    - String, Number, Boolean, Null, Undefined, Symbols(ES6)
-- Reference Data Types:
-    Accessed by reference
-    Objects that are stored on the heap**(dynamically allocated memory)
-    A pointer to a location in memory
-    - Arrays, Object Literals, Functions, Dates, Anything Else.. (object wrappers?)
 
+---
+
+### About JS
+
+- Dyanmicall Typed Language
+  Types are associated with values not variables.
+  same variable can hold multiple types.
+  we do not need to specify type.
+  Most others are statically typed.
+  There are supersets of JS and addons to allow static typing (TypeScript, Flow)
+
+### Data Types
+
+- Primitive Data Types:
+  Stored directly in the location the variable accesses Stored on the stack.
+  - String, Number, Boolean, Null, Undefined, Symbols(ES6)
+- Reference Data Types:
+  Accessed by reference
+  Objects that are stored on the heap\*\*(dynamically allocated memory)
+  A pointer to a location in memory
+  - Arrays, Object Literals, Functions, Dates, Anything Else.. (object wrappers?)
 
 ```javascript
 //// PRIMITIVE DATATYPE
@@ -167,16 +179,16 @@ console.log(numbers);
 // String
 const name = 'John Doe';
 
-// Number 
+// Number
 const age = 45;
 const ages = '45'; // string
 
-// Boolean 
-const hasString = true; 
+// Boolean
+const hasString = true;
 
 // Null
-const car = null; 
-// appears to be an 'object' but kinda bug. 
+const car = null;
+// appears to be an 'object' but kinda bug.
 // not object but primitive type. marked at note.md*
 
 // Undefined
@@ -194,9 +206,9 @@ console.log(typeof hobbies); // obejct
 
 // Object literal
 const address = {
-    city: 'Boston',
-    state: 'MA'
-}
+	city: 'Boston',
+	state: 'MA',
+};
 console.log(typeof address); // object
 
 // Date - new keyword explained later.
@@ -205,7 +217,8 @@ console.log(typeof today); // object
 ```
 
 ## 1.5. Type Conversion
---- 
+
+---
 
 ```javascript
 let val;
@@ -228,17 +241,17 @@ val = (5).toString(); // 5, string, 1
 val = true.toString(); // true, string, 4
 
 // String to number
-val = Number("5");
+val = Number('5');
 // decimal point == 2
 console.log(val.toFixed(2)); // 5.00
 
 val = Number(true); // 1, number, 1
 val = Number(false); // 0, number, 0
 val = Number(null); // 0, number, 0
-val = Number("hello"); // NAN, number, NAN: actual value that returns not a number
+val = Number('hello'); // NAN, number, NAN: actual value that returns not a number
 
-val = parseInt("100.30"); // 100 (parse only intenger)
-val = parseFloat("100.31"); // 100.31(parse with decimals)
+val = parseInt('100.30'); // 100 (parse only intenger)
+val = parseFloat('100.31'); // 100.31(parse with decimals)
 
 // Output
 console.log(val);
@@ -248,17 +261,17 @@ console.log(val.toFixed(2));
 
 //// Type Coercion - What js do 'String' + 'int'
 const val1 = 4564;
-const val2 = " text";
+const val2 = ' text';
 const sum = val1 + val2;
 console.log(sum);
 console.log(typeof sum);
-
 ```
 
 ## 1.6. Math
+
 ---
 
-``` javascript
+```javascript
 // Use Case - Form 등에서 String(default)으로 변수를 받아서 계산하려면,
 // parse해서 Number type으로 바꿔서 사용한다.
 const num1 = 100;
@@ -294,26 +307,26 @@ val = Math.floor(Math.random() * 20 + 1);
 console.log(val);
 ```
 
-
 ## 1.7. String Method & Concatenation
---- 
+
+---
 
 ```javascript
-const fName = "John";
-const lName = "Snow";
+const fName = 'John';
+const lName = 'Snow';
 const age = 25;
 let val;
-const str = "hello there my name is Rafy";
-const tags = "web design,web develeopment,programming";
+const str = 'hello there my name is Rafy';
+const tags = 'web design,web develeopment,programming';
 
 //// Concatenation
-val = fName + " " + lName;
+val = fName + ' ' + lName;
 
 //// Append
-val = "Arya ";
-val += "Stark";
+val = 'Arya ';
+val += 'Stark';
 
-val = "His name is " + fName + " and he is " + age;
+val = 'His name is ' + fName + ' and he is ' + age;
 
 //// Escaping
 val = "That's awesome, I can't wait";
@@ -323,17 +336,17 @@ val = "That's awesome, I can't wait";
 val = fName.length;
 
 //// concat() - method
-val = fName.concat(" ", lName);
+val = fName.concat(' ', lName);
 
 //// change case
 val = fName.toUpperCase();
 val = fName.toLowerCase();
 
 //// index, indexOf()
-herName = "Arya Stark";
+herName = 'Arya Stark';
 val = herName[0];
-val = herName.indexOf("h");
-val = herName.lastIndexOf("a");
+val = herName.indexOf('h');
+val = herName.lastIndexOf('a');
 // 0 으로 시작하므로 length -1 로 마지막 숫자를 찾는다. common formula you will see in JS
 val = fName.charAt(fName.length - 1); // n (from 'John')
 
@@ -347,26 +360,27 @@ val = fName.slice(1, 3);
 val = fName.slice(-3);
 
 // split()
-val = str.split(" ");
-val = tags.split(",");
+val = str.split(' ');
+val = tags.split(',');
 
 //// replace()
-val = str.replace("Rafy", "Jack");
+val = str.replace('Rafy', 'Jack');
 
 /// includes()
-val = str.includes("my");
+val = str.includes('my');
 
 console.log(val);
-
 ```
+
 ## 1.8. Template Literal (ES6)
---- 
+
+---
 
 ```javascript
-const hisName = "John";
+const hisName = 'John';
 const age = 30;
-const job = "Night watch";
-const city = "the Wall";
+const job = 'Night watch';
+const city = 'the Wall';
 
 // // Without template string (es5) - old way
 // html = '<ul><li>hisName: ' + hisName + '</li><li>Age: ' + age + '</li><li>Job: ' + job + '</li><li>City: ' + city + '</li></ul>';
@@ -382,7 +396,7 @@ const city = "the Wall";
 // ***** single quotes('') 말고 backticks(``) !!!!! *****
 
 function hello() {
-	return "Hello!!";
+	return 'Hello!!';
 }
 
 html = ` 
@@ -393,14 +407,16 @@ html = `
         <li>City: ${city}</li>
         <li>${2 + 2}</li>
         <li>${hello()}</li>
-        <li>${age > 20 ? "Over 20" : "Under 20"}</li>
+        <li>${age > 20 ? 'Over 20' : 'Under 20'}</li>
     </ul>
     `;
 
 document.body.innerHTML = html;
 ```
+
 ## 1.9. Array and Array Method
---- 
+
+---
 
 ```javascript
 // Array and Array Method *** Review
@@ -409,8 +425,8 @@ document.body.innerHTML = html;
 // Create Some arrays
 const numbers = [43, 56, 33, 23, 44, 36, 5]; // #1 'array literal'
 const numbers2 = new Array(22, 45, 33, 76, 54); // #2 using 'array constructor'
-const fruit = ["Apple", "Banana", "orange", "Pear"];
-const mixed = [22, "Hello", true, undefined, null, { a: 1, b: 2 }, new Date()];
+const fruit = ['Apple', 'Banana', 'orange', 'Pear'];
+const mixed = [22, 'Hello', true, undefined, null, { a: 1, b: 2 }, new Date()];
 
 console.log(mixed);
 
@@ -477,23 +493,24 @@ val = numbers.find(under50);
 
 console.log(numbers);
 console.log(val);
-
-
 ```
+
 ## 1.10. Object Literal
---- 
+
+---
+
 ```javascript
 //// Object Literal
 
 const person = {
-	fName: "Steve",
-	lNAme: "Smith",
+	fName: 'Steve',
+	lNAme: 'Smith',
 	age: 38,
-	email: "steve@aol.com",
-	hobbies: ["music", "sports"],
+	email: 'steve@aol.com',
+	hobbies: ['music', 'sports'],
 	address: {
-		city: "Miami",
-		state: "FL",
+		city: 'Miami',
+		state: 'FL',
 	},
 	getBirthYear: function () {
 		// ** we can access other property in the object.
@@ -509,51 +526,53 @@ val = person;
 
 //syntax
 val = person.firstName; // Steve
-val = person["lastName"]; // Smith
+val = person['lastName']; // Smith
 
 val = person.age;
 val = person.hobbies[1]; // sports
 val = person.address.state; // FL
-val = person.address["city"]; // Miami
+val = person.address['city']; // Miami
 val = person.getBirthYear(); // 1984
 
 console.log(val);
 
 const people = [
-	{ name: "John", age: 30 },
-	{ name: "Mike", age: 23 },
-	{ name: "Nancy", age: 40 },
+	{ name: 'John', age: 30 },
+	{ name: 'Mike', age: 23 },
+	{ name: 'Nancy', age: 40 },
 ];
 
 for (let i = 0; i < people.length; i++) {
 	console.log(people[i].name);
 }
-
 ```
+
 ## 1.11. Date and Time
---- 
+
+---
+
 ```javascript
 let val;
 
 const today = new Date();
 // val = today;
-// val = today.toString(); 
+// val = today.toString();
 // console.log(typeof val); // object
 
-let bday= new Date('9-10-1981 11:24:00');
-bday= new Date('Setember 10 1981');
-bday= new Date('9/10/1981');
+let bday = new Date('9-10-1981 11:24:00');
+bday = new Date('Setember 10 1981');
+bday = new Date('9/10/1981');
 
 val = bday;
 const month = new Date('1/1/2022'); // getMonth시, 0으로 나온다. 0 based
 val = month.getMonth(); // 0
-val = month.getDate(); // 1 
+val = month.getDate(); // 1
 console.log(val);
 ```
 
 ```javascript
 let val;
- 
+
 const today = new Date();
 let birthday = new Date('11-27-1984 11:24:00');
 birthday = new Date('September 10 1981');
@@ -576,7 +595,8 @@ birthday.setHours(3);
 birthday.setMinutes(30);
 birthday.setSeconds(25);
 
-console.log(birthday); 
+console.log(birthday);
 console.log(val);
 ```
+
 (https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date)

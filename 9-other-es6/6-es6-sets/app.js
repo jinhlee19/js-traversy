@@ -7,12 +7,12 @@ set1.add(100);
 set1.add('A string');
 set1.add({name: 'John'});
 set1.add(true);
-set1.add(100);
+set1.add(100); // 원래 있던 값은 저장이 되지 않는다.
 
 // const set2 = new Set([1, true, 'string']);
 // console.log(set2);
 
-// console.log(set1);
+console.log(set1);
 
 // Get count
 // console.log(set1.size);

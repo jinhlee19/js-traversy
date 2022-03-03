@@ -1,3 +1,15 @@
+// es7, 2016 기능 - 웹팩, 바벨로 컴파일해서 사용
+
+/*
+function 앞에 단순히 async를 붙이는 것만으로도 Promise를 return 한다.
+async function myFunc(){
+	return 'hello';
+ }
+--> THIS RETURNS AT CONSOLE AS 
+--> Promise {[[PromiseStatus]]: ...}
+*/
+
+
 // async function myFunc() {
 //   const promise = new Promise((resolve, reject) => {
 //     setTimeout(() => resolve('Hello'), 1000);

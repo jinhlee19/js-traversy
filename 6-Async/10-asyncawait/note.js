@@ -2,12 +2,15 @@ async function myFunc() {
 	const promise = new Promise((resolve, reject) => {
 		setTimeout(() => resolve('Hello'), 2000);
 	});
-	const error = false;
+	const error = true;
 	if (!error) {
 		const res = await promise; 
+		// Wait until Promise is resolved  (위의 2sec)
 		return res;
 	} else {
-		await Promise.reject(new Error('something went wrong'));
+		await Promise.reject(new Error('something went wrong'))
+		;
+		// Error 생성자 Constructor 참고 [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Error/Error]
 	}
 }
 

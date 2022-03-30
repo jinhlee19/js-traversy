@@ -53,5 +53,20 @@ class UI {
     setTimeout(() => {
       this.clearAlert();
     }, 3000);
+    
+  // Clear alert message
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+
+    if(currentAlert){
+      currentAlert.remove();
+    }
   }
+
+  // Clear profile
+  clearProfile() {
+    this.profile.innerHTML = '';
+  }
+}
+
   
